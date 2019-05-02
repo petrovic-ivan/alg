@@ -5,12 +5,16 @@ public class InsertionSort {
     public static void main(String[] args) {
         int[] intArray = { 20, 35, -15, 7, 55, 1, -22 };
 
-        for (int lastUnsortedIndex = intArray.length - 1; lastUnsortedIndex > 0; lastUnsortedIndex--) {
-            for (int i = 0; i < lastUnsortedIndex; i++) {
-                if (intArray[i] > intArray[i + 1]) {
-                    swap(intArray, i, i + 1);
-                }
+        for (int firstUnsortedIndex = 1; firstUnsortedIndex < intArray.length; firstUnsortedIndex++) {
+           
+            int newElement = intArray[firstUnsortedIndex];
+            int i;
+            // Traversing from right to left.
+            for (i = firstUnsortedIndex; i > 0 && intArray[i - 1] > newElement; i--) {
+                intArray[i] = intArray[i - 1] ;
             }
+
+            intArray[i] = newElement;
         }
 
         for (int i = 0; i < intArray.length; i++) {
