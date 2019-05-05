@@ -1,9 +1,7 @@
 // Insertion sort is in-place algorithm.
 // - It iterates over array and traverse back in each iteration. 
 // - In each iteration it stores value of current iteration index (which also represents first unsorted index).
-// - Then it traverse back from first iteration index towards beginning.
-// - During traversion it compares current iteration value with current traversion value. 
-// - If traversion value is greater than current iteration value then it insert iteration value one place further.
+// - Druing traversion it tries to insert current iteration value in apropriate sort order. 
 // - It stops traversion once if traversion value is not greater than current iteration value.
 // - Once traversion is stopped it inserts current iteration value in array.
 
