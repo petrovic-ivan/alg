@@ -1,10 +1,8 @@
 // Insertion sort is in-place algorithm.
-// - It iterates over array and traverse back in each iteration. 
-// - In each iteration it stores value of current iteration index (which also represents first unsorted index).
-// - Druing traversion it tries to insert current iteration value in apropriate sort order. 
-// - It stops traversion once if traversion value is not greater than current iteration value.
-// - Once traversion is stopped it inserts current iteration value in array.
-
+// - It iterates the input elements by growing the sorted array at each iteration. 
+// - It compares the current element with the largest value in the sorted array. 
+// - If the current element is greater, then it leaves the element in its place and moves on to the next element else it finds its correct position in the sorted array and moves it to that position. 
+// - This is done by shifting all the elements, which are larger than the current element, in the sorted array to one position ahead.
 public class InsertionSort {
     public static void main(String[] args) {
         int[] intArray = { 20, 35, -15, 7, 55, 1, -22 };
