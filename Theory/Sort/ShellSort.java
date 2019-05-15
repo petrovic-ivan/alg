@@ -1,3 +1,4 @@
+// It asumes that array is already sorted in some amount. Accordint that accumtion it will create gaps and do sorting in gaps. After evey gap iteration it will reduce gap.
 // The method starts by sorting pairs of elements far apart from each other, then progressively reducing the gap between elements to be compared.
 public class ShellSort {
     public static void main(String[] args) {
