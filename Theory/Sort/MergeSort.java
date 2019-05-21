@@ -25,6 +25,20 @@ public class MergeSort {
 
     public static void merge(int[] input, int start, int mid, int end) {
         System.out.println("start: " + Integer.toString(start) + " mid: " + Integer.toString(mid) + " end: " + Integer.toString(end));
+
+        if (input[min - 1] <= input[mid]) {
+            return;
+        }
+
+        int i = start;
+        int j = mid;
+        int tempIndex = 0;
+
+        int[] temp = new int[end - start];
+        while(i < mid && j < end) {
+            temp[tempIndex++] = input[i] <= input[j] ? input[i++] : input[j++];
+        }
+
     }
 
 }
