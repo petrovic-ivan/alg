@@ -5,16 +5,16 @@ public class MergeSort {
 
         mergeSort(intArray, 0, intArray.length, "rignt");
 
-        // for (int i = 0; i < intArray.length; i++) {
-        //     System.out.println(intArray[i]);
-        // }
+        for (int i = 0; i < intArray.length; i++) {
+            System.out.println(intArray[i]);
+        }
 
     }
 
     public static void mergeSort(int[] input, int start, int end, String o) {
-        System.out.println("Start: " + start + " End: " + end + " " + o);
+        // System.out.println("Start: " + start + " End: " + end + " " + o);
         if (end - start < 2) {
-            System.out.println("return ---------------");
+            // System.out.println("return ---------------");
             return; 
         }
 
@@ -22,13 +22,13 @@ public class MergeSort {
         mergeSort(input, start, mid, "right");
         mergeSort(input, mid, end, "left");
         
-        // merge(input, start, mid, end);
+        merge(input, start, mid, end);
     }
 
     public static void merge(int[] input, int start, int mid, int end) {
-        System.out.println("start: " + Integer.toString(start) + " mid: " + Integer.toString(mid) + " end: " + Integer.toString(end));
+        // System.out.println("start: " + Integer.toString(start) + " mid: " + Integer.toString(mid) + " end: " + Integer.toString(end));
 
-        if (input[min - 1] <= input[mid]) {
+        if (input[mid - 1] <= input[mid]) {
             return;
         }
 
@@ -40,6 +40,9 @@ public class MergeSort {
         while(i < mid && j < end) {
             temp[tempIndex++] = input[i] <= input[j] ? input[i++] : input[j++];
         }
+
+        System.arraycopy(input, i, input, start + tempIndex, mid - i);
+        System.arraycopy(temp, 0, input, start, tempIndex);
 
     }
 
