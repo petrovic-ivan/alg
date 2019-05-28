@@ -11,22 +11,19 @@ public class MergeSort {
 
     }
 
-    public static void mergeSort(int[] input, int start, int end, String o) {
-        // System.out.println("Start: " + start + " End: " + end + " " + o);
+    private static void mergeSort(int[] input, int start, int end, String o) {
         if (end - start < 2) {
-            // System.out.println("return ---------------");
             return; 
         }
 
         int mid = (start + end) / 2;
         mergeSort(input, start, mid, "right");
         mergeSort(input, mid, end, "left");
-        
+
         merge(input, start, mid, end);
     }
 
-    public static void merge(int[] input, int start, int mid, int end) {
-        // System.out.println("start: " + Integer.toString(start) + " mid: " + Integer.toString(mid) + " end: " + Integer.toString(end));
+    private static void merge(int[] input, int start, int mid, int end) {
 
         if (input[mid - 1] <= input[mid]) {
             return;
@@ -43,7 +40,6 @@ public class MergeSort {
 
         System.arraycopy(input, i, input, start + tempIndex, mid - i);
         System.arraycopy(temp, 0, input, start, tempIndex);
-
     }
 
 }
