@@ -2,7 +2,6 @@ public class QuickSort {
     public static void main(String[] args) {
         int[] intArray = { 20, 35, -15, 7, 55, 1, -22 };
 
-        
         quickSort(intArray, 0, intArray.length);
 
         for (int i = 0; i < intArray.length; i++) {
@@ -25,14 +24,16 @@ public class QuickSort {
         int i = start;
         int j = end;
 
-        while(i < j) {
+        while (i < j) {
 
-            while(i < j && input[--j] >= pivot);
+            while (i < j && input[--j] >= pivot)
+                ;
             if (i < j) {
                 input[i] = input[j];
             }
 
-            while(i < j && input[++i] <= pivot);
+            while (i < j && input[++i] <= pivot)
+                ;
             if (i < j) {
                 input[j] = input[i];
             }
