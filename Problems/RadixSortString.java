@@ -1,28 +1,28 @@
-public class RadixSort {
+public class RadixSortString {
     public static void main(String[] args) {
-        int[] radixArray = { 4725, 4586, 1330, 1594, 5729 };
+        String[] radixArray = { "bcdef", "dbagc", "abcde", "cmadd", "bbbbb" };
 
-        radixSort(radixArray, 10, 4);
+        radixSort(radixArray, 26, 5);
 
         for (int i = 0; i < radixArray.length; i++) {
             System.out.println(radixArray[i]);
         }
     }
 
-    private static void radixSort(int[] input, int radix, int width) {
-        for (int i = 0; i < input.length; i++) {
+    private static void radixSort(String[] input, int radix, int width) {
+        for (int i = width - 1; i >= 0; i--) {
             radixSingleSort(input, i, radix);            
         }
     }
 
-    private static void radixSingleSort(int[] input, int position, int radix) {
+    private static void radixSingleSort(String[] input, int position, int radix) {
 
             int numItems = input.length;
 
             int[] countArray = new int[radix];
 
-            for (int value : input) {
-                countArray[getDigit(position, value, radix)]++;
+            for (String item : input) {
+                countArray[getIndex(position, item)]++;
             }
 
             // Adjust count array
@@ -30,9 +30,9 @@ public class RadixSort {
                 countArray[i] += countArray[i - 1];
             }
 
-            int[] temp = new int[numItems];
+            String[] temp = new String[numItems];
             for (int tempIndex = numItems - 1; tempIndex >= 0; tempIndex--){
-                temp[--countArray[getDigit(position, input[tempIndex], radix)]] = input[tempIndex];
+                temp[--countArray[getIndex(position, input[tempIndex])]] = input[tempIndex];
             }
 
             for (int tempIndex = 0; tempIndex < numItems; tempIndex++) {
@@ -40,7 +40,7 @@ public class RadixSort {
             }
     }
 
-    private static int getDigit(int position, int value, int radix) {
-        return value / (int)Math.pow(radix, position) % radix;
+    private static int getIndex(int position, String item) {
+        return item.charAt(position) - 'a';
     }
 }
