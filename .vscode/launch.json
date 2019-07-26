@@ -9,24 +9,6 @@
             "name": "Debug (Launch) - Current File",
             "request": "launch",
             "mainClass": "${file}"
-        },
-        {
-            "type": "java",
-            "name": "Debug (Launch)-BubbleSort",
-            "request": "launch",
-            "mainClass": "BubbleSort"
-        },
-        {
-            "type": "java",
-            "name": "Debug (Launch)-InsertionSort",
-            "request": "launch",
-            "mainClass": "InsertionSort"
-        },
-        {
-            "type": "java",
-            "name": "Debug (Launch)-SelectionSort",
-            "request": "launch",
-            "mainClass": "SelectionSort"
         }
     ]
 }
