@@ -165,11 +165,8 @@ linkedList.addToFront(5);
 linkedList.addToFront(6);
 linkedList.addToEnd(10);
 
-
 linkedList.printAll();
-
 linkedList.removeAt(linkedList.getSize() - 1);
 
 linkedList.printAll();
-
 linkedList.getSize()
