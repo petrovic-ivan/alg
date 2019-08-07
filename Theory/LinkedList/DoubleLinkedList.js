@@ -44,6 +44,20 @@ const LinkedList = function () {
         size++;
     };
 
+    this.addBefore = function(d, before) {
+
+        const previous = before.getPrevious();
+        if (size <= 0 || !previous) {
+            this.addToFront(d);
+            return;
+        }
+
+        const node = new Node(d);
+        node.setNext(before);
+        previous.setNext(node);
+        before.setPrevious(node);
+    }
+
     this.addToEnd = function (n) {
         let node = new Node(n);
 
@@ -130,9 +144,43 @@ const LinkedList = function () {
         return null;
     }
 
+    this.getAt = function (n) {
+        const latestIndex = size - 1;
+
+        if (n > latestIndex && n < 0) {
+            return null;
+        }
+
+        if (n === 0 || size <= 1) {
+            return this.getHead();
+        }
+
+        if (n === latestIndex) {
+            return this.getTail();
+        }
+
+        let node = head;
+        let index = 0;
+        while (node) {
+            if (index === n) {
+                return node;
+            }
+
+            index++;
+            node = node.getNext();
+        }
+
+        return null;
+    }
+
     this.getHead = function () {
         return head;
     };
+
+    this.getTail = function () {
+        return tail;
+    };
+
 
     this.isEmpty = function () {
         return !head;
@@ -166,7 +214,9 @@ linkedList.addToFront(6);
 linkedList.addToEnd(10);
 
 linkedList.printAll();
-linkedList.removeAt(linkedList.getSize() - 1);
+
+const at = linkedList.getAt(1);
+
+linkedList.addBefore(11, at);
 
 linkedList.printAll();
-linkedList.getSize()
