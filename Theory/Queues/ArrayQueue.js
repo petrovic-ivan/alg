@@ -1,8 +1,6 @@
 const ArrayQueue = function () {
 
     let backArray = [];
-    let front;
-    let back;
 
     this.enqueue = function (item) {
         backArray.push(item);
