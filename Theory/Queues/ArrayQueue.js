@@ -1,42 +1,37 @@
 const ArrayQueue = function () {
 
-    let backArray = [];
+    let data = {};
+    let front = 0;
+    let back = 0;
 
     this.enqueue = function (item) {
-        backArray.push(item);
+        data[back++] = item;
     }
 
     this.dequeue = function () {
-        const latest = backArray.length - 1;
-        if (latest <= 0) {
+        if ((back - front) < 0) {
+            back = 0;
+            front = 0;
             return null;
         }
 
-        const data = backArray[latest];
-        backArray.splice(latest, 1);
-
-        return data;
+        const item = data[front];
+        delete data[front];
+        front++;
+        return item;
     }
 
     this.peek = function () {
-        const latest = backArray.length - 1;
-        if (latest <= 0) {
-            return null;
-        }
-
-        return backArray[latest];
+        return data[front];
     }
 
     this.getSize = function () {
-        return backArray.length;
+        return back - front;
     }
 
-    this.print = function (data) {
-        if (data) {
-            console.log(data);
-        } else {
-            backArray.map(item => console.log(item));
-        }
+    this.print = function () {
+        Object.values(data).map(item => console.log(item));
+        console.log('---');
     }
 }
 
