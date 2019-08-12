@@ -9,15 +9,14 @@ const ArrayQueue = function () {
     }
 
     this.dequeue = function () {
-        if ((back - front) < 0) {
+        if (this.size() <= 0) {
             back = 0;
             front = 0;
             return null;
         }
 
         const item = data[front];
-        delete data[front];
-        front++;
+        delete data[front++];
         return item;
     }
 
@@ -25,12 +24,13 @@ const ArrayQueue = function () {
         return data[front];
     }
 
-    this.getSize = function () {
+    this.size = function () {
         return back - front;
     }
 
     this.print = function () {
         Object.values(data).map(item => console.log(item));
+        console.log(`Size ${this.size()}.`)
         console.log('---');
     }
 }
@@ -40,5 +40,11 @@ arrayQueue.enqueue(1);
 arrayQueue.enqueue(2);
 arrayQueue.enqueue(3);
 arrayQueue.enqueue(4);
+
+arrayQueue.print();
+
+arrayQueue.dequeue();
+arrayQueue.dequeue();
+arrayQueue.dequeue();
 
 arrayQueue.print();
