@@ -1,4 +1,4 @@
-const ArrayQueue = function () {
+const LinearQueue = function () {
 
     let data = {};
     let front = 0;
@@ -38,16 +38,16 @@ const ArrayQueue = function () {
     }
 }
 
-const arrayQueue = new ArrayQueue();
-arrayQueue.enqueue(1);
-arrayQueue.enqueue(2);
-arrayQueue.enqueue(3);
-arrayQueue.enqueue(4);
+const linearQueue = new LinearQueue();
+linearQueue.enqueue(1);
+linearQueue.enqueue(2);
+linearQueue.enqueue(3);
+linearQueue.enqueue(4);
 
-arrayQueue.print();
+linearQueue.print();
 
-arrayQueue.dequeue();
-arrayQueue.dequeue();
-arrayQueue.dequeue();
+linearQueue.dequeue();
+linearQueue.dequeue();
+linearQueue.dequeue();
 
-arrayQueue.print();
+linearQueue.print();
