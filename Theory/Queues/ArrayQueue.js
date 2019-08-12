@@ -21,7 +21,10 @@ const ArrayQueue = function () {
     }
 
     this.peek = function () {
-        return data[front];
+        if (this.size() > 0) {
+            return data[front];
+        }
+        return null;
     }
 
     this.size = function () {
