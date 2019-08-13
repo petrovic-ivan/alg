@@ -45,7 +45,7 @@ const Hashtable = function (max) {
             hashedKey = (hashedKey + 1) % hashtable.length;
         }
 
-        if (hashedKey !== stopIndex) {
+        if (hashedKey !== stopIndex && (hashtable[hashedKey] && !hashtable[hashedKey].key === key)) {
             hashedKey = -1;
         }
 
@@ -67,7 +67,7 @@ const Hashtable = function (max) {
     this.get = function (key) {
         let hashedKey = hashCode(key);
         hashedKey = findKey(key, hashedKey);
-        return hashtable[hashedKey];
+        return hashtable[hashedKey].value;
     }
 
     this.print = function (value) {
@@ -85,6 +85,6 @@ hashtable.put('Mike', 'Mike Object');
 hashtable.put('John', 'John Object');
 hashtable.put('Jen', 'Jane Object');
 
-hashtable.print();
+hashtable.print('John');
 
 // hashtable.print('Mike');
