@@ -41,11 +41,11 @@ const Hashtable = function (max) {
             hashedKey++;
         }
 
-        while (hashedKey != stopIndex && !hashtable[hashedKey] && !hashtable[hashedKey].key === key) {
+        while (hashedKey != stopIndex && (!hashtable[hashedKey] || hashtable[hashedKey].key !== key)) {
             hashedKey = (hashedKey + 1) % hashtable.length;
         }
 
-        if (hashedKey !== stopIndex && (hashtable[hashedKey] && !hashtable[hashedKey].key === key)) {
+        if (!hashtable[hashedKey] || hashtable[hashedKey].key !== key) {
             hashedKey = -1;
         }
 
@@ -67,7 +67,17 @@ const Hashtable = function (max) {
     this.get = function (key) {
         let hashedKey = hashCode(key);
         hashedKey = findKey(key, hashedKey);
-        return hashtable[hashedKey].value;
+        return hashtable[hashedKey] ? hashtable[hashedKey].value : null;
+    }
+
+    this.remove = function (key) {
+        let hashedKey = hashCode(key);
+        hashedKey = findKey(key, hashedKey);
+        if (hashedKey || hashedKey === 0) {
+            hashtable.splice(hashedKey, 1);
+            return true;
+        }
+        return false;
     }
 
     this.print = function (value) {
@@ -85,6 +95,8 @@ hashtable.put('Mike', 'Mike Object');
 hashtable.put('John', 'John Object');
 hashtable.put('Jen', 'Jane Object');
 
-hashtable.print('John');
+hashtable.remove('John');
 
-// hashtable.print('Mike');
+hashtable.print('Mike');
+hashtable.print('John');
+hashtable.print('Jen');
