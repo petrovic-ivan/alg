@@ -1,6 +1,6 @@
 const Hashtable = function (max) {
 
-    const hashtable = new Array(max);;
+    const hashtable = new Array(max);
 
     const hashCode = function (key) {
         return key.length % hashtable.length;
