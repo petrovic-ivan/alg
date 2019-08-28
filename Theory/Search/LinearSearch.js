@@ -1,4 +1,4 @@
-const LinearSearch = function() {
+const LinearSearch = function () {
 
     const search = function (array, value) {
         for (let i = 0; i < array.length; i++) {
