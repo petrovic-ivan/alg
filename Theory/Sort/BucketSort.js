@@ -1,29 +1,25 @@
 const BucketSort = function () {
 
-
-    const _hash = function (value) {
-        return Math.floor(value / 10);
-    }
+    const _hash = (value) => Math.floor(value / 10);
 
     const sort = function (input) {
 
         const buckets = new Array(10);
-
         for (let i = 0; i < buckets.length; i++) {
             buckets[i] = new Array();
         }
 
         for (let i = 0; i < input.length; i++) {
-            buckets[_hash(input[i])].push(input[i]);
+            let value = input[i]
+            buckets[_hash(value)].push(value);
         }
 
         for (let i = 0; i < buckets.length; i++) {
-            buckets[i].sort((a, b) => a - b);
+           buckets[i].sort((a, b) => a - b);
         }
-
         let index = 0;
         for (let i = 0; i < buckets.length; i++) {
-            for (let j = 0; buckets[i].length > 0 && j < buckets[i].length; j++) {
+            for (let j = 0; j < buckets[i].length; j++) {
                 input[index++] = buckets[i][j];
             }
         }
