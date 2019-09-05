@@ -4,31 +4,31 @@ const TreeNode = function (d) {
     let leftChild;
     let rightChild;
 
-    const getData = () => {
+    const _getData = () => {
         return data;
     }
 
-    const setData = (value) => {
+    const _setData = (value) => {
         data = value;
     }
 
-    const getLeftChild = () => {
+    const _getLeftChild = () => {
         return leftChild;
     }
 
-    const setLeftChild = (value) => {
+    const _setLeftChild = (value) => {
         leftChild = value;
     }
 
-    const getRightChild = () => {
+    const _getRightChild = () => {
         return rightChild;
     }
 
-    const setRightChild = (value) => {
+    const _setRightChild = (value) => {
         rightChild = value;
     }
 
-    const insert = (value) => {
+    const _insert = (value) => {
         if (value === data) {
             return;
         }
@@ -50,11 +50,11 @@ const TreeNode = function (d) {
         }
     }
 
-    const traverseInOrder = () => {
+    const _traverseInOrder = () => {
 
         if (leftChild) {
             leftChild.traverseInOrder();
-        } 
+        }
 
         console.log(data);
 
@@ -63,23 +63,53 @@ const TreeNode = function (d) {
         }
     };
 
+    const _get = (value) => {
+        if (data === value) {
+            return this;
+        }
 
-    this.getData = getData;
-    this.setData = setData;
-    this.getLeftChild = getLeftChild;
-    this.setLeftChild = setLeftChild;
-    this.getRightChild = getRightChild;
-    this.setRightChild = setRightChild;
-    this.insert = insert;
-    this.traverseInOrder = traverseInOrder;
+        if (value < data && leftChild) {
+            return leftChild.get(value);
+        }
+
+        if (value > data && rightChild) {
+            return rightChild.get(value);
+        }
+
+    }
+
+    const _min = () => {
+        if (!leftChild) {
+            return this;
+        } 
+        return leftChild.min();
+    }
+
+    const _max = () => {
+        if (!rightChild) {
+            return this;
+        } 
+        return rightChild.max();
+    }
+
+    this.getData = _getData;
+    this.setData = _setData;
+    this.getLeftChild = _getLeftChild;
+    this.setLeftChild = _setLeftChild;
+    this.getRightChild = _getRightChild;
+    this.setRightChild = _setRightChild;
+    this.insert = _insert;
+    this.traverseInOrder = _traverseInOrder;
+    this.get = _get;
+    this.min = _min;
+    this.max = _max;
 };
-
 
 const BinarySearchTree = function () {
 
     let root;
 
-    const insert = (value) => {
+    const _insert = (value) => {
         if (!root) {
             root = new TreeNode(value);
         } else {
@@ -87,17 +117,41 @@ const BinarySearchTree = function () {
         }
     };
 
-    
-    this.insert = insert;
-    this.traverseInOrder = () => {
+    const _traverseInOrder = () => {
         if (root) {
             root.traverseInOrder();
         }
-        
+
     }
+
+    const _get = (value) => {
+        if (root) {
+            return root.get(value);
+        }
+        return null;
+    }
+
+    const _min = () => {
+        if (root) {
+            return root.min();
+        } 
+        return null;
+    }
+
+    const _max = () => {
+        if (root) {
+            return root.max();
+        } 
+        return null;
+    }
+
+
+    this.insert = _insert;
+    this.traverseInOrder = _traverseInOrder;
+    this.get = _get;
+    this.min = _min;
+    this.max = _max;
 };
-
-
 
 const tree = new BinarySearchTree();
 tree.insert(25);
@@ -111,3 +165,6 @@ tree.insert(22);
 tree.insert(32);
 
 tree.traverseInOrder();
+
+console.log('Min: ', tree.min().getData());
+console.log('Max: ', tree.max().getData());
