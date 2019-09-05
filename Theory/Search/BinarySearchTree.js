@@ -81,15 +81,19 @@ const TreeNode = function (d) {
     const _min = () => {
         if (!leftChild) {
             return this;
-        } 
+        }
         return leftChild.min();
     }
 
     const _max = () => {
         if (!rightChild) {
             return this;
-        } 
+        }
         return rightChild.max();
+    }
+
+    const _delete = (value) => {
+
     }
 
     this.getData = _getData;
@@ -103,6 +107,7 @@ const TreeNode = function (d) {
     this.get = _get;
     this.min = _min;
     this.max = _max;
+    this.delete = _delete;
 };
 
 const BinarySearchTree = function () {
@@ -118,6 +123,7 @@ const BinarySearchTree = function () {
     };
 
     const _traverseInOrder = () => {
+        console.log('Traverse: ');
         if (root) {
             root.traverseInOrder();
         }
@@ -134,15 +140,39 @@ const BinarySearchTree = function () {
     const _min = () => {
         if (root) {
             return root.min();
-        } 
+        }
         return null;
     }
 
     const _max = () => {
         if (root) {
             return root.max();
-        } 
+        }
         return null;
+    }
+
+    const _delete = (value) => {
+        console.log('Delete: ', value);
+        root = _deleteNode(root, value);
+    }
+
+    const _deleteNode = (subTreeRoot, value) => {
+        if (!subTreeRoot) {
+            return null;
+        }
+
+        if (value < subTreeRoot.getData()) {
+            subTreeRoot.setLeftChild(_deleteNode(subTreeRoot.getLeftChild(), value));
+        } else if (value > subTreeRoot.getData()) {
+            subTreeRoot.setRightChild(_deleteNode(subTreeRoot.getRightChild(), value));
+        } else {
+            if (!subTreeRoot.getLeftChild()) {
+                return subTreeRoot.getRightChild();
+            } else if (!subTreeRoot.getRightChild()) {
+                return subTreeRoot.getLeftChild();
+            }
+        }
+        return subTreeRoot;
     }
 
 
@@ -151,6 +181,7 @@ const BinarySearchTree = function () {
     this.get = _get;
     this.min = _min;
     this.max = _max;
+    this.delete = _delete;
 };
 
 const tree = new BinarySearchTree();
@@ -164,7 +195,12 @@ tree.insert(26);
 tree.insert(22);
 tree.insert(32);
 
+
 tree.traverseInOrder();
 
 console.log('Min: ', tree.min().getData());
 console.log('Max: ', tree.max().getData());
+
+tree.delete(15);
+
+tree.traverseInOrder();
