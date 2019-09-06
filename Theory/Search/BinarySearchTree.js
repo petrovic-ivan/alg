@@ -171,6 +171,10 @@ const BinarySearchTree = function () {
             } else if (!subTreeRoot.getRightChild()) {
                 return subTreeRoot.getLeftChild();
             }
+
+            const minRight = subTreeRoot.getRightChild().min();
+            subTreeRoot.setData(minRight.getData()); // Replacing value in node which we want to delete. It is not delete, only replaced value.
+            subTreeRoot.setRightChild(_deleteNode(subTreeRoot.getRightChild(), subTreeRoot.getData())); // 
         }
         return subTreeRoot;
     }
@@ -201,6 +205,6 @@ tree.traverseInOrder();
 console.log('Min: ', tree.min().getData());
 console.log('Max: ', tree.max().getData());
 
-tree.delete(15);
+tree.delete(17);
 
 tree.traverseInOrder();
