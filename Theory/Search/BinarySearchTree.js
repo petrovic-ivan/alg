@@ -56,10 +56,23 @@ const TreeNode = function (d) {
             leftChild.traverseInOrder();
         }
 
-        console.log(data);
+        console.log(data); // Visiting node between left and right.
 
         if (rightChild) {
             rightChild.traverseInOrder();
+        }
+    };
+
+    const _traversePreOrder = () => {
+
+        console.log(data); // Visiting node before left and right.
+
+        if (leftChild) {
+            leftChild.traversePreOrder();
+        }
+
+        if (rightChild) {
+            rightChild.traversePreOrder();
         }
     };
 
@@ -104,6 +117,7 @@ const TreeNode = function (d) {
     this.setRightChild = _setRightChild;
     this.insert = _insert;
     this.traverseInOrder = _traverseInOrder;
+    this.traversePreOrder = _traversePreOrder;
     this.get = _get;
     this.min = _min;
     this.max = _max;
@@ -123,9 +137,17 @@ const BinarySearchTree = function () {
     };
 
     const _traverseInOrder = () => {
-        console.log('Traverse: ');
+        console.log('Traverse in-order: ');
         if (root) {
             root.traverseInOrder();
+        }
+
+    }
+
+    const _traversePreOrder = () => {
+        console.log('Traverse pre-order: ');
+        if (root) {
+            root.traversePreOrder();
         }
 
     }
@@ -179,9 +201,9 @@ const BinarySearchTree = function () {
         return subTreeRoot;
     }
 
-
     this.insert = _insert;
     this.traverseInOrder = _traverseInOrder;
+    this.traversePreOrder = _traversePreOrder;
     this.get = _get;
     this.min = _min;
     this.max = _max;
@@ -192,19 +214,19 @@ const tree = new BinarySearchTree();
 tree.insert(25);
 tree.insert(20);
 tree.insert(15);
+tree.insert(17);
+tree.insert(22);
 tree.insert(27);
+tree.insert(26);
 tree.insert(30);
 tree.insert(29);
-tree.insert(26);
-tree.insert(22);
 tree.insert(32);
 
-
-tree.traverseInOrder();
+tree.traversePreOrder();
 
 console.log('Min: ', tree.min().getData());
 console.log('Max: ', tree.max().getData());
 
-tree.delete(17);
+// tree.delete(100);
 
-tree.traverseInOrder();
+// tree.traverseInOrder();
