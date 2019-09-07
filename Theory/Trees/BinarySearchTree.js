@@ -190,7 +190,7 @@ const BinarySearchTree = function () {
         } else {
             if (!subTreeRoot.getLeftChild()) {
                 return subTreeRoot.getRightChild();
-            } else if (!subTreeRoot.getRightChild()) { 
+            } else if (!subTreeRoot.getRightChild()) {
                 return subTreeRoot.getLeftChild();
             }
 
@@ -201,9 +201,9 @@ const BinarySearchTree = function () {
         return subTreeRoot;
     }
 
-    this.insert = _insert;
     this.traverseInOrder = _traverseInOrder;
     this.traversePreOrder = _traversePreOrder;
+    this.insert = _insert;
     this.get = _get;
     this.min = _min;
     this.max = _max;
