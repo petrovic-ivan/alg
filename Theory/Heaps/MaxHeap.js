@@ -26,10 +26,9 @@ const MaxHeap = function (capacity) {
                     childToSwap = (heap[leftChild] > heap[rightChild] ? leftChild : rightChild);
                 }
 
-
                 if (heap[index] < heap[childToSwap]) {
                     const tmp = heap[index];
-                    heap[index] = heap[childToSwap];
+                    head[index] = heap[childToSwap];
                     heap[childToSwap] = tmp;
                 } else {
                     break;
@@ -90,8 +89,6 @@ const MaxHeap = function (capacity) {
 
         return deletedValue;
     };
-
-
 
     const _traverse = () => {
         let i = -1;
