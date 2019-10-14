@@ -28,7 +28,7 @@ const MaxHeap = function (capacity) {
 
                 if (heap[index] < heap[childToSwap]) {
                     const tmp = heap[index];
-                    head[index] = heap[childToSwap];
+                    heap[index] = heap[childToSwap];
                     heap[childToSwap] = tmp;
                 } else {
                     break;
@@ -90,6 +90,17 @@ const MaxHeap = function (capacity) {
         return deletedValue;
     };
 
+    const _sort = () => {
+        let lastHeapIndex = size - 1;
+        for (let i = 0; i < lastHeapIndex; i++) {
+            const tmp = heap[0];
+            heap[0] = heap[lastHeapIndex - i];
+            heap[lastHeapIndex - i] = tmp;
+
+            _fixHeapBelow(0, lastHeapIndex - i - 1);
+        }
+    }
+
     const _traverse = () => {
         let i = -1;
         while (++i < size && !console.log(`Index: ${i} Value: ${heap[i]}`));
@@ -99,6 +110,7 @@ const MaxHeap = function (capacity) {
     this.isEmpty = _isEmpty;
     this.insert = _insert;
     this.delete = _delete;
+    this.sort = _sort;
     this.traverse = _traverse;
 
 };
@@ -116,8 +128,7 @@ heap.insert(15);
 heap.insert(17);
 heap.insert(32);
 
+heap.sort();
 heap.traverse();
 
-heap.delete(0);
 
-heap.traverse();
