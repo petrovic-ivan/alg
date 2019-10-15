@@ -29,11 +29,6 @@ let numJewelsInStones1 = function(J, S) {
     return result;
 };
 
-let result1 = numJewelsInStones1('aA', 'aAAbbbb');
-console.log('Example 1: Result - ' + result1 + ' Is Equal: ' +  (result1 === 3));
-console.log('Example 2: Result - ' + result1 + ' Is Equal: ' +  (result1 === 0));
-
-
 let numJewelsInStones2 = function(J, S) {
     let chars = {};
     for (let i = 0; i < S.length; i++) {
@@ -56,6 +51,18 @@ let numJewelsInStones2 = function(J, S) {
     return counter;
 };
 
-let result2 = numJewelsInStones1('aA', 'aAAbbbb');
-console.log('Example 1: Result - ' + result2 + ' Is Equal: ' +  (result2 === 3));
-console.log('Example 2: Result - ' + result2 + ' Is Equal: ' +  (result2 === 0));
+let numJewelsInStones3 = function(J, S) {
+    return S.replace(new RegExp(`[^${J}]`, 'g'), '').length;
+};
+
+console.log('Example 1: Result - ' + numJewelsInStones1('aA', 'aAAbbbb') + ' Is Equal: ' +  (numJewelsInStones1('aA', 'aAAbbbb') === 3));
+console.log('Example 2: Result - ' + numJewelsInStones1('z', 'ZZ') + ' Is Equal: ' +  (numJewelsInStones1('z', 'ZZ') === 0));
+console.log('\n');
+
+console.log('Example 1: Result - ' + numJewelsInStones2('aA', 'aAAbbbb') + ' Is Equal: ' +  (numJewelsInStones2('aA', 'aAAbbbb') === 3));
+console.log('Example 2: Result - ' + numJewelsInStones2('z', 'ZZ') + ' Is Equal: ' +  (numJewelsInStones2('z', 'ZZ') === 0));
+console.log('\n');
+
+console.log('Example 1: Result - ' + numJewelsInStones3('aA', 'aAAbbbb') + ' Is Equal: ' +  (numJewelsInStones3('aA', 'aAAbbbb') === 3));
+console.log('Example 2: Result - ' + numJewelsInStones3('z', 'ZZ') + ' Is Equal: ' +  (numJewelsInStones3('z', 'ZZ') === 0));
+console.log('\n');
