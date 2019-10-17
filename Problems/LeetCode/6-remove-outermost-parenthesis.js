@@ -39,22 +39,19 @@ S is a valid parentheses string
 
 */
 
-let removeOuterParentheses = function(S) {
-
+let removeOuterParentheses = function (S) {
     let counter = 0;
-    let latestStartIndex = 0;
     let output = '';
     for (let i = 0; i < S.length; i++) {
         const c = S[i];
-        if (c === '(') {
-            counter++;
-        } else {
-            counter--;
+        if (c === '(' && counter++ > 0) {
+            output += c;
         }
-        if (counter === 0) {
-            output += S.slice(latestStartIndex + 1, i);
-            latestStartIndex = i + 1;   
+
+        if (c === ')' && --counter > 0) {
+            output += c;
         }
+
     }
     return output;
 };
