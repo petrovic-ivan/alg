@@ -30,17 +30,12 @@ let letterCasePermutation = function (S) {
         if (parseInt(S[n]) >= 0) {
             word += S[n];
             backtrack(n + 1, word);
-            console.log(n);
-            word = word.slice(0, word.length - 1);
         } else {
             word += S[n].toLowerCase();
             backtrack(n + 1, word);
-            console.log(n + 'Lower' + ' string: ' + word);
             word = word.slice(0, word.length - 1);
             word += S[n].toUpperCase();
             backtrack(n + 1, word);
-            console.log(n + 'Upper' + ' string: ' + word);
-            word = word.slice(0, word.length - 1);
         }
     }
 
@@ -48,6 +43,6 @@ let letterCasePermutation = function (S) {
     return arr;
 };
 
-console.log('Example 1: Result - ' + letterCasePermutation("aa") + ' Expected: ["a1b2", "a1B2", "A1b2", "A1B2"]');
-// console.log('Example 2: Result - ' + letterCasePermutation("3z4") + ' Expected: ["3z4", "3Z4"]');
-// console.log('Example 3: Result - ' + letterCasePermutation("12345") + ' Expected: ["12345"]');
+console.log('Example 1: Result - ' + letterCasePermutation("a1b2") + ' Expected: ["a1b2", "a1B2", "A1b2", "A1B2"]');
+console.log('Example 2: Result - ' + letterCasePermutation("3z4") + ' Expected: ["3z4", "3Z4"]');
+console.log('Example 3: Result - ' + letterCasePermutation("12345") + ' Expected: ["12345"]');
