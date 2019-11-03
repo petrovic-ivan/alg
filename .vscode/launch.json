@@ -16,5 +16,11 @@
             "name": "Node",
             "program": "${file}"
         },
+        {
+            "type": "python",
+            "request": "launch",
+            "name": "Python",
+            "program": "${file}"
+        }
     ]
 }
