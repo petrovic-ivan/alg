@@ -1,0 +1,8 @@
+* Damerau–Levenshtein distance
+* Quick sort
+* Bucket sort
+* Bubble sort
+* Merge sort
+* Selection sort
+* Counting sort
+* Selection Sort
