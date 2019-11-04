@@ -1,8 +1,19 @@
-* Damerau–Levenshtein distance
-* Quick sort
-* Bucket sort
-* Bubble sort
-* Merge sort
-* Selection sort
-* Counting sort
-* Selection Sort
+# SORT
+    * Quick sort
+    * Bucket sort
+    * Bubble sort
+    * Merge sort
+    * Selection sort
+    * Counting sort
+    * Selection Sort
+
+# SEARCH
+    * BFS
+    * DFS
+
+# STRING DISTANCE:
+    * Damerau–Levenshtein distance
+    * Hamming distance
+    * Simple matching distance
+    * Edit distance
+
