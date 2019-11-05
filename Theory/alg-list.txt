@@ -12,8 +12,5 @@
     * DFS
 
 # STRING DISTANCE:
-    * Damerau–Levenshtein distance
-    * Hamming distance
-    * Simple matching distance
-    * Edit distance
-
+    * Damerau–Levenshtein distance, Minimum Edit Distance, Hamming distance
+    * Dynamic programming

@@ -37,9 +37,28 @@ s1, s2 only contain 'x' or 'y'.
 
 class Solution(object):
     def minimumSwap(self, s1, s2):
-        return ''
+
+        if len(s1) != len(s2): return -1
+        x_y = 0
+        y_x = 0
+        for i in range(len(s1)):
+            if s1[i] == s2[i]: continue
+
+            if s1[i] == 'x': x_y += 1
+            else: y_x += 1
+        
+        if (x_y + y_x) % 2 == 1: return -1
+
+        result = 0
+        result += x_y // 2
+        result += y_x // 2
+        result +=  x_y % 2
+        result +=  y_x % 2
+        return result
         
 instance = Solution()
 
-print("Example 1: Result - " + str(instance.findMaxConsecutiveOnes([1,1,0,1,1,1])) + " Expected: 3")       
-print("Example 2: Result - " + str(instance.findMaxConsecutiveOnes([1,0,1,1,0,1])) + " Expected: 2") 
+print("Example 1: Result - " + str(instance.minimumSwap("xx", "yy")) + " Expected: 1")       
+print("Example 2: Result - " + str(instance.minimumSwap("xy", "yx")) + " Expected: 2") 
+print("Example 3: Result - " + str(instance.minimumSwap("xx", "xy")) + " Expected: -1")       
+print("Example 4: Result - " + str(instance.minimumSwap("xxyyxyxyxx", "xyyxyxxxyx")) + " Expected: 4") 
