@@ -21,28 +21,18 @@ S consists only of English lowercase letters.
 */
 
 let removeDuplicates = function (S) {
-    let unique = '';
-    let isUnique = true;
-    while (isUnique) {
-        let sb = '';
-        for (let i = 0; i < S.length; i++) {
-            if (S[i] !== S[i + 1]) sb += S[i];
-            else i += 2;
-        }
+    let result = [];
 
-        isUnique = false;
-        for (let i = 0; i < sb.length - 1; i++) {
-            if (sb[i] === sb[i + 1]) {
-                isUnique = true;
-                break;
-            }
+    for (let i = 0; i < S.length; i++) {
+        if (S[i] !== result[result.length - 1]) {
+            result.push(S[i]);
+        } else {
+            result.pop();
         }
-
-        unique = sb;
-        S = sb;
     }
-
-    return unique;
+    return result.join('');
 };
 
+console.log('Example 1: Result - ' + removeDuplicates("abbaca") + ' Expected: ca');
 console.log('Example 1: Result - ' + removeDuplicates("aaaaaaaaa") + ' Expected: a');
+console.log('Example 1: Result - ' + removeDuplicates("aaaaaaaaaa") + ' Expected: ');
