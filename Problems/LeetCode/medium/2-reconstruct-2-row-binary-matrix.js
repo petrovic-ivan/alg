@@ -1,26 +1,3 @@
-let oddCells = function(n, m, indices) {
-    let matrix = [];
-    for (let i = 0; i < n; i++) {
-        matrix.push(new Int8Array(m));
-    }
-
-    for (let i = 0; i < indices.length; i++) {
-        for (let j = 0; j < matrix[indices[i][0]].length; j++) {
-            matrix[indices[i][0]][j]++;
-        }     
-        for (let j = 0; j < matrix.length; j++) {
-            matrix[j][indices[i][1]]++;
-        }    
-    }
-    let counter = 0;
-    for (let i = 0; i < matrix.length; i++) {
-        for (let j = 0; j < matrix[i].length; j++) {
-            if (matrix[i][j] % 2 !== 0) counter++;
-        }
-    }
-    return counter;
-};
-
 /*
  Given the following details of a matrix with n columns and 2 rows :
 
