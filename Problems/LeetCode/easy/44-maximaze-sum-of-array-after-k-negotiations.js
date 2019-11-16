@@ -49,4 +49,4 @@ let largestSumAfterKNegations = function (A, K) {
 console.log('Example 1: Result - ' + largestSumAfterKNegations([4, 2, 3], 1) + ' Expected: 5');
 console.log('Example 2: Result - ' + largestSumAfterKNegations([3, -1, 0, 2], 3) + ' Expected: 6');
 console.log('Example 3: Result - ' + largestSumAfterKNegations([2, -3, -1, 5, -4], 2) + ' Expected: 13');
-console.log('Example 3: Result - ' + largestSumAfterKNegations([-8,3,-5,-3,-5,-2], 6) + ' Expected: 22');
+console.log('Example 4: Result - ' + largestSumAfterKNegations([-8,3,-5,-3,-5,-2], 6) + ' Expected: 22');
