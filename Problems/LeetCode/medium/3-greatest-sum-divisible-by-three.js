@@ -32,8 +32,8 @@ let maxSumDivThree = function (nums) {
     for (let i = 0; i < nums.length; i++) {
         let diff = nums[i] % 3;
         if (diff === 1) {
-            minOne = Math.min(minOne, nums[i]);
             minTwo = Math.min(minTwo, minOne + nums[i]);
+            minOne = Math.min(minOne, nums[i]);
         }
         if (diff === 2) {
             minOne = Math.min(minOne, minTwo + nums[i]);
@@ -50,4 +50,4 @@ let maxSumDivThree = function (nums) {
 console.log(maxSumDivThree([3, 6, 5, 1, 8]).toString());
 console.log(maxSumDivThree([4]).toString());
 console.log(maxSumDivThree([1, 2, 3, 4, 4]).toString());
-console.log(maxSumDivThree([2, 2, 2, 2, 2]).toString());
+console.log(maxSumDivThree([3, 3, 3, 7, 9, 2, 2, 2]).toString());
