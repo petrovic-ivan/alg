@@ -1,16 +1,20 @@
-# SORT
-    * Quick sort
-    * Bucket sort
-    * Bubble sort
-    * Merge sort
-    * Selection sort
-    * Counting sort
-    * Selection Sort
+# Quick sort
+# Bucket sort
+# Bubble sort
+# Merge sort
+# Selection sort
+# Counting sort
+# Selection Sort
 
-# SEARCH
-    * BFS
-    * DFS
+# BFS
+# DFS
 
-# STRING DISTANCE:
-    * Damerau–Levenshtein distance, Minimum Edit Distance, Hamming distance
-    * Dynamic programming
+
+# Damerau–Levenshtein distance
+# Minimum Edit Distance
+# Hamming distance
+
+# Dynamic programming: Main components are Recurion and Memoization.
+    * Top-down method (Memoization)
+    * Botom-up method (Tabulation)
+    * FAST method: Find recursive solution, Analyse the solution, Save the results for future, Tweak the solutoin to make it more powerful by eliminating recursion overhead.
