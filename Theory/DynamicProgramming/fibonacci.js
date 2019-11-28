@@ -15,12 +15,12 @@ console.log('fib1: ' + fib1(10));
  */
 let fib2 = (n) => {
     let cache = [];
-    let recursion = () => {
-        if (n < 2) return n;
-        if (cache[n]) return cache[n];
+    let recursion = (num) => {
+        if (num< 2) return num;
+        if (cache[num]) return cache[num];
 
-        cache[n] = fib2(n - 1) + fib2(n - 2);
-        return cache[n];
+        cache[num] = fib2(num - 1) + fib2(num - 2);
+        return cache[num];
     }
 
     return recursion(n);
