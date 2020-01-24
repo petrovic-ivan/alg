@@ -9,12 +9,16 @@
 # BFS
 # DFS
 
-
 # Damerau–Levenshtein distance
 # Minimum Edit Distance
 # Hamming distance
 
+# Divide and conquere
 # Dynamic programming: Main components are Recurion and Memoization.
     * Top-down method (Memoization)
     * Botom-up method (Tabulation)
     * FAST method: Find recursive solution, Analyse the solution, Save the results for future, Tweak the solutoin to make it more powerful by eliminating recursion overhead.
+
+
+# Mathemtical (puzzle) games:
+    * Tower of Hanoi
