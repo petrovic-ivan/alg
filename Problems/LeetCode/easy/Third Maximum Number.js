@@ -42,6 +42,6 @@ var thirdMax = function(nums) {
         }           
     }
 
-    return c || a;
+    return c !== null ? c : a;
 };
-console.log(thirdMax([1,2]));
+console.log(thirdMax([3,3,4,3,4,3,0,3,3]));
