@@ -25,23 +25,23 @@ Both numbers with value 2 are both considered as second maximum.
 
 */
 var thirdMax = function(nums) {
-    let a = 0, b = 0, c = 0;
+    let a = null, b = null, c = null;
 
     for (let i = 0; i < nums.length; i++) {
         let current = nums[i];
         if (current === a || current === b || current === c) continue;
-        if (a < current) {
+        if (a === null || a < current) {
             c = b;
             b = a;
             a = current;
-        } else if (b < current) {
+        } else if (b  === null || b < current) {
             c = b;
             b = current;
-        } else if (c < current) {
+        } else if (c  === null || c < current) {
             c = current;
         }           
     }
 
-    return c;
+    return c || a;
 };
-console.log(thirdMax([2, 2, 3, 1]));
+console.log(thirdMax([1,2]));
