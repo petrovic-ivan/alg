@@ -9,8 +9,6 @@
 # BFS
 # DFS
 
-
-# Damerau–Levenshtein distance
 # Minimum Edit Distance
 # Hamming distance
 
@@ -18,6 +16,9 @@
     * Top-down method (Memoization)
     * Botom-up method (Tabulation)
     * FAST method: Find recursive solution, Analyse the solution, Save the results for future, Tweak the solutoin to make it more powerful by eliminating recursion overhead.
+
+# Sliding window
+# Divide and conquere
 
 # General probles:
     * Rabbits and Chickens in cage.
