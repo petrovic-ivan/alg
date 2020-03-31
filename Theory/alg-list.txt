@@ -9,9 +9,11 @@
 # BFS
 # DFS
 
+# Damerau–Levenshtein distance
 # Minimum Edit Distance
 # Hamming distance
 
+# Divide and conquere
 # Dynamic programming: Main components are Recurion and Memoization.
     * Top-down method (Memoization)
     * Botom-up method (Tabulation)
@@ -22,3 +24,6 @@
 
 # General probles:
     * Rabbits and Chickens in cage.
+
+# Mathemtical (puzzle) games:
+    * Tower of Hanoi
